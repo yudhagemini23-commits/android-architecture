@@ -38,6 +38,23 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
+    }
+
+    flavorDimensions += "stage"
+    productFlavors {
+        create("dev") {
+            dimension = "stage"
+            buildConfigField("String", "BASE_URL", "\"https://dev.api.com\"")
+        }
+        create("staging") {
+            dimension = "stage"
+            buildConfigField("String", "BASE_URL", "\"https://staging.api.com\"")
+        }
+        create("prod") {
+            dimension = "stage"
+            buildConfigField("String", "BASE_URL", "\"https://api.com\"")
+        }
     }
 }
 
