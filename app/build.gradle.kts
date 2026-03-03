@@ -43,6 +43,7 @@ android {
     buildFeatures {
         compose = true
         buildConfig = true
+        viewBinding = true
     }
 
     flavorDimensions += "stage"
@@ -80,6 +81,10 @@ dependencies {
     implementation(libs.androidx.fragment.ktx)
     //Dagger hilt
     implementation(libs.hilt.android)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.annotation)
+    implementation(libs.androidx.constraintlayout)
     ksp(libs.hilt.compiler)
     //Coroutines
     implementation(libs.kotlinx.coroutines.android)

@@ -1,4 +1,4 @@
-package com.ina17.android_architecture.domain.repository
+package com.ina17.android_architecture.features.home.domain.repository
 
 import javax.inject.Inject
 

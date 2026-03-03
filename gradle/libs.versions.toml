@@ -15,6 +15,10 @@ activityKtx = "1.10.0"
 fragmentKtx = "1.8.5"
 coroutines = "1.10.2"
 navigation = "2.8.0"
+appcompat = "1.6.1"
+material = "1.10.0"
+annotation = "1.6.0"
+constraintlayout = "2.1.4"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -41,6 +45,10 @@ kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-cor
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-annotation = { group = "androidx.annotation", name = "annotation", version.ref = "annotation" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 
 
 [plugins]

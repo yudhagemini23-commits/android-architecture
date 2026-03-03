@@ -1,4 +1,4 @@
-package com.ina17.android_architecture.di
+package com.ina17.android_architecture.features.home.di
 
 import dagger.Module
 import dagger.hilt.InstallIn
