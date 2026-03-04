@@ -20,4 +20,19 @@ class HeroRepositoryImpl @Inject constructor(
             Result.failure(e)
         }
     }
+
+    override suspend fun getHerobyId(id: Int): Result<Hero>{
+        return try {
+            val response = api.getHeroes()
+            val heroDto = response.find{it.id == id }
+
+            if (heroDto != null) {
+                Result.success(heroDto.toDomain())
+            }else {
+                Result.failure(Exception("Hero not found"))
+            }
+        }catch (e: Exception){
+            Result.failure(e)
+        }
+    }
 }

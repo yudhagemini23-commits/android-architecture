@@ -2,6 +2,7 @@ package com.ina17.android_architecture.features.hero.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.ina17.android_architecture.features.hero.domain.model.Hero
 import com.ina17.android_architecture.features.hero.domain.repository.HeroRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -32,5 +33,13 @@ class HeroViewModel @Inject constructor(
                 }
             )
         }
+    }
+
+    fun getHerobyId(id: Int): Hero? {
+        val currentState = _state.value
+        if (currentState is HeroState.Success) {
+            return currentState.heroes.find { it.id == id }
+        }
+        return null
     }
 }
