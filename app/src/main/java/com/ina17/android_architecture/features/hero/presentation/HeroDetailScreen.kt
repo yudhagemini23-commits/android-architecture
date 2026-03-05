@@ -53,7 +53,7 @@ fun HeroDetailContent(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { hero.localizedName?.let { Text(it) } },
+                title = { Text("Back")  },
                 navigationIcon = {
                     IconButton(onClick = onBackClick) {
                         Icon(

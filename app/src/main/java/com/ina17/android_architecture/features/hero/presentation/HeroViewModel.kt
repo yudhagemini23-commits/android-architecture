@@ -42,4 +42,24 @@ class HeroViewModel @Inject constructor(
         }
         return null
     }
+
+
+    fun sortHeroes(sortType: SortType) {
+        val currentState = _state.value
+
+        if (currentState is HeroState.Success) {
+            val currentList = currentState.heroes
+
+            // Tentukan cara mengurutkan berdasarkan SortType yang dipilih
+            val sortedList = when (sortType) {
+                SortType.NAME_ASCENDING -> currentList.sortedBy { it.localizedName }
+                SortType.NAME_DESCENDING -> currentList.sortedByDescending { it.localizedName }
+                SortType.PRIMARY_ATTRIBUTE -> currentList.sortedBy { it.primaryAttr }
+                SortType.ATTACK_TYPE -> currentList.sortedBy { it.attackType }
+            }
+
+            // Perbarui UI dengan list yang baru
+            _state.value = HeroState.Success(sortedList)
+        }
+    }
 }
