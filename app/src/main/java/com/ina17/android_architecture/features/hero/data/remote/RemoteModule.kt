@@ -1,5 +1,6 @@
 package com.ina17.android_architecture.features.hero.data.remote
 
+import com.ina17.android_architecture.BuildConfig.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,7 +14,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object RemoteModule {
-    private const val BASE_URL = "https://api.opendota.com/"
 
     @Provides
     @Singleton

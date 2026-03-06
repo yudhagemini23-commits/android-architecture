@@ -29,13 +29,13 @@ class HeroDetailViewModel @Inject constructor(
         viewModelScope.launch {
             _state.value = HeroDetailState.Loading
 
-            // Memanggil fungsi yang baru kita buat di Repository
+
             repository.getHerobyId(heroId).fold(
                 onSuccess = { hero ->
                     _state.value = HeroDetailState.Success(hero)
                 },
                 onFailure = { error ->
-                    _state.value = HeroDetailState.Error(error.message ?: "Terjadi kesalahan")
+                    _state.value = HeroDetailState.Error(error.message ?: "Error Occurred")
                 }
             )
         }

@@ -56,6 +56,9 @@ class MainActivity : ComponentActivity() {
                                 HeroScreen(
                                     onHeroClick = { heroId ->
                                         navController.navigate("hero_detail/$heroId")
+                                    },
+                                    onBackClick = {
+                                        navController.popBackStack()
                                     }
                                 )
                             }

@@ -2,7 +2,6 @@ package com.ina17.android_architecture.features.hero.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ina17.android_architecture.features.hero.domain.model.Hero
 import com.ina17.android_architecture.features.hero.domain.repository.HeroRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -29,20 +28,11 @@ class HeroViewModel @Inject constructor(
                     _state.value = HeroState.Success(heroes)
                 },
                 onFailure = { error ->
-                    _state.value = HeroState.Error(error.message ?: "Error occured")
+                    _state.value = HeroState.Error(error.message ?: "Error occurred")
                 }
             )
         }
     }
-
-    fun getHerobyId(id: Int): Hero? {
-        val currentState = _state.value
-        if (currentState is HeroState.Success) {
-            return currentState.heroes.find { it.id == id }
-        }
-        return null
-    }
-
 
     fun sortHeroes(sortType: SortType) {
         val currentState = _state.value
@@ -50,7 +40,6 @@ class HeroViewModel @Inject constructor(
         if (currentState is HeroState.Success) {
             val currentList = currentState.heroes
 
-            // Tentukan cara mengurutkan berdasarkan SortType yang dipilih
             val sortedList = when (sortType) {
                 SortType.NAME_ASCENDING -> currentList.sortedBy { it.localizedName }
                 SortType.NAME_DESCENDING -> currentList.sortedByDescending { it.localizedName }
@@ -58,7 +47,6 @@ class HeroViewModel @Inject constructor(
                 SortType.ATTACK_TYPE -> currentList.sortedBy { it.attackType }
             }
 
-            // Perbarui UI dengan list yang baru
             _state.value = HeroState.Success(sortedList)
         }
     }

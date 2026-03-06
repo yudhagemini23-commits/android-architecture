@@ -50,7 +50,7 @@ android {
     productFlavors {
         create("dev") {
             dimension = "stage"
-            buildConfigField("String", "BASE_URL", "\"https://dev.api.com\"")
+            buildConfigField("String", "BASE_URL", "\"https://api.opendota.com/\"")
         }
         create("staging") {
             dimension = "stage"
@@ -86,17 +86,19 @@ dependencies {
     implementation(libs.androidx.annotation)
     implementation(libs.androidx.constraintlayout)
     ksp(libs.hilt.compiler)
-    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+    implementation(libs.androidx.hilt.navigation.compose)
     //Coroutines
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.coroutines.core)
     //Navigation Compose
     implementation(libs.androidx.navigation.compose)
+    //Skeleton loading
+    implementation(libs.androidx.lifecycle.runtime.compose)
+    implementation(libs.coil.compose)
     //Retrofit
-    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
-    implementation("com.squareup.retrofit2:retrofit:2.11.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
-    implementation("io.coil-kt:coil-compose:2.7.0")
+    implementation(libs.retrofit.core)
+    implementation(libs.retrofit.converter.gson)
+    implementation(libs.okhttp.logging.interceptor)
     //Test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
